@@ -1,0 +1,4 @@
+1. Make requests grab code from http get requests
+2. Grab newest code from robotics canvas page
+3. Make program run on picker
+4. Make program run on startup
