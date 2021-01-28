@@ -1,5 +1,4 @@
 import requests
-import re
 
 def post(shortUrl, date):
     s = requests.Session()
@@ -13,7 +12,7 @@ def post(shortUrl, date):
     responseUrl += "formResponse"
 
     getResponse = str(s.get(viewUrl).text)
-    index = getResponse.find('''[[997277672,"Today's Code",null,0,[[192437282,null,1,null,[[2,100,["''')
+    index = getResponse.find('''[[746616177,"Today's Code",null,0,[[280336572,null,1,null,[[2,100,["''')
     indexEnd = getResponse.find('''"]
 ,"Nope. Wrong answer."]''')
 
@@ -24,21 +23,21 @@ def post(shortUrl, date):
     print(date.year)
 
     form_data = {
-        "entry.192437282": todaysCode,
+        "entry.280336572": todaysCode,
 
-        "entry.1374497096": "114966",
+        "entry.1529735670": "114966",
 
         "pageHistory": "",
 
-        "entry.495808885": "Eric Still",
+        "entry.2096777452": "Eric Still",
 
-        "entry.1995648639": "10.0",
+        "entry.985620564": "10.0",
 
-        "entry.1241598149_year": date.year,
+        "entry.1014515718_year": date.year,
 
-        "entry.1241598149_month": date.month,
+        "entry.1014515718_month": date.month,
 
-        "entry.1241598149_day": date.day,
+        "entry.1014515718_day": date.day,
 
         "pageHistory": "0,1"
     }

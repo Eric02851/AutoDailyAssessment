@@ -10,11 +10,8 @@ def doAssessment():
 
     url = spliceUrl(today)
     if url != False:
-        #post(url, today)
-        print(url)
+        post(url, today)
     else:
         print("No Assessment Today")
-    
-    print(post("https://forms.gle/7sxHgKyWfBL2nvtJ9", today))
 
 doAssessment()
