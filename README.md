@@ -5,4 +5,4 @@
   - bs4
   - requests
   - schedule  
- After installing the dependinces run main.py.
+  After installing the dependinces run main.py.
