@@ -15,7 +15,7 @@ def findUrl():
     values = {
             "authenticity_token": csrf_data,
             "pseudonym_session[unique_id]": schoolSignIn.email,
-            "pseudonym_session[password": schoolSignIn.password,
+            "pseudonym_session[password": schoolSignIn.canvasPassword,
             "pseudonym_session[remember_me": '0'
             }
     r = s.post(url,data=values,headers = headers)

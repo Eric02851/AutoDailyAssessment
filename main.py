@@ -17,7 +17,7 @@ def doAssessment():
         pass
 
 schedule.every().day.at("14:45").do(doAssessment)
-
+doAssessment()
 while 1:
     schedule.run_pending()
     time.sleep(1)

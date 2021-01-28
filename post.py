@@ -6,7 +6,7 @@ port = 465
 smtp_server = "smtp.gmail.com"
 sender_email = schoolSignIn.email
 receiver_email = schoolSignIn.email
-password = schoolSignIn.password
+password = schoolSignIn.emailPassword
 context = ssl.create_default_context()
 
 def post(shortUrl, date):

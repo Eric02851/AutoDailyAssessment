@@ -1,6 +1,7 @@
 class schoolSignIn:
 #Put info inside quotes
     email = ""
-    password = ""
+    emailPassword = ""
+    canvasPassword = ""
     studentName = ""
     studentId = ""
