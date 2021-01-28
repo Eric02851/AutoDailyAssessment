@@ -4,5 +4,5 @@
   - lxml
   - bs4
   - requests
-  - schedule
+  - schedule  
  After installing the dependinces run main.py.
