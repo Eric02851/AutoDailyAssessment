@@ -1,3 +1,5 @@
+import schedule
+import time
 from datetime import date
 from post import post
 from urlLocator import spliceUrl
@@ -14,4 +16,8 @@ def doAssessment():
     else:
         print("No Assessment Today")
 
-doAssessment()
+schedule.every().day.at("14:45").do(doAssessment)
+
+while 1:
+    schedule.run_pending()
+    time.sleep(1)
