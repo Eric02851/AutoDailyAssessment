@@ -14,7 +14,7 @@ def doAssessment():
     if url != False:
         post(url, today)
     else:
-        print("No Assessment Today")
+        pass
 
 schedule.every().day.at("14:45").do(doAssessment)
 
