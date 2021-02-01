@@ -1,17 +1,17 @@
 import requests
-from hidden import schoolSignIn
+from config import config
 import smtplib, ssl
 
 port = 465
 smtp_server = "smtp.gmail.com"
-sender_email = schoolSignIn.email
-receiver_email = schoolSignIn.email
-password = schoolSignIn.emailPassword
+sender_email = config.email
+receiver_email = config.email
+password = config.emailPassword
 context = ssl.create_default_context()
 
 s = requests.Session()
 
-def email(postResponse, todaysCode, shortUrl, date):
+def email(postResponse, todaysCode, shortUrl, date, score):
     if postResponse == "<Response [200]>":
         message = f"""\
 Subject: Assessment {date.month}/{date.day} COMPLETED
@@ -19,10 +19,10 @@ Subject: Assessment {date.month}/{date.day} COMPLETED
 Assessment url: {shortUrl}
 Assessment Content:
     Today's Code: {todaysCode}
-    Student ID Number: {schoolSignIn.studentId}
-    Your Full First Name: {schoolSignIn.studentName}
+    Student ID Number: {config.studentId}
+    Your Full First Name: {config.studentName}
     Date: {date.month}/{date.day}/{date.year}
-    Numerical Grade: 10.0
+    Numerical Grade: {score}
 """
     else:
         message = """
@@ -55,19 +55,19 @@ def getCode_Url(shortUrl):
         url = responseUrl
     return getData
 
-def post(shortUrl, date):
+def post(shortUrl, date, score):
     getData = getCode_Url(shortUrl)
 
     form_data = {
         "entry.280336572": getData.code,
 
-        "entry.1529735670": schoolSignIn.studentId,
+        "entry.1529735670": config.studentId,
 
         "pageHistory": "",
 
-        "entry.2096777452": schoolSignIn.studentName,
+        "entry.2096777452": config.studentName,
 
-        "entry.985620564": "10.0",
+        "entry.985620564": score,
 
         "entry.1014515718_year": date.year,
 
@@ -79,4 +79,4 @@ def post(shortUrl, date):
     }
 
     postResponse = str(s.post(getData.url, data=form_data))
-    email(postResponse, getData.code, shortUrl, date)
+    email(postResponse, getData.code, shortUrl, date, score)

@@ -3,6 +3,14 @@ import time
 from datetime import date
 from post import post
 from urlLocator import spliceUrl
+from config import config
+
+def scoreInput():
+    if config.autoScore == "0.0":
+        score = input("Enter a numerical grade from 1-10 up to the tenths decimal place. ")
+        return str(float(score))
+    else:
+        return str(float(config.autoScore))
 
 def doAssessment():
     class today:
@@ -12,12 +20,15 @@ def doAssessment():
 
     url = spliceUrl(today)
     if url != False:
-        post(url, today)
+        score = scoreInput()
+        post(url, today, score)
     else:
-        pass
+        print("No Assessment Today")
 
-schedule.every().day.at("14:45").do(doAssessment)
-
-while 1:
-    schedule.run_pending()
-    time.sleep(1)
+if config.useSchedule == False:
+    doAssessment()
+else:
+    schedule.every().day.at("14:45").do(doAssessment)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
