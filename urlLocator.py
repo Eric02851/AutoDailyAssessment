@@ -1,6 +1,6 @@
 import requests
 import bs4
-from hidden import schoolSignIn
+from config import config
 
 def findUrl():
     headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36'}
@@ -14,8 +14,8 @@ def findUrl():
 
     values = {
             "authenticity_token": csrf_data,
-            "pseudonym_session[unique_id]": schoolSignIn.email,
-            "pseudonym_session[password": schoolSignIn.canvasPassword,
+            "pseudonym_session[unique_id]": config.email,
+            "pseudonym_session[password": config.canvasPassword,
             "pseudonym_session[remember_me": '0'
             }
     r = s.post(url,data=values,headers = headers)
