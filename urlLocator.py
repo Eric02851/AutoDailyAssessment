@@ -29,7 +29,7 @@ def spliceUrl(date):
     dateLen = len(todaysDate)
     dateSearch = getResponse.find(todaysDate)
     if dateSearch != -1:
-        indexStart = dateSearch + dateLen + 118
+        indexStart = dateSearch + dateLen + 132
         return getResponse[indexStart:indexStart + 35]
     else:
         return False
