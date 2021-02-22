@@ -18,7 +18,7 @@ python3 -m pip install -r requirements.txt
 https://myaccount.google.com/lesssecureapps?pli=1&rapt=AEjHL4PCeo67OZq3z468WiSBD-IxJobTyyiUxg2lDfTmMGlCiRvShYKHVzWrYfPV15gYLTrMqPP2NtaserESeGNXtXC26E0zSQ  
 ```
  
-### Fill out config.py with your info and run main.py
+### Fill out config.py with your info
 ```
  email = ""
  emailPassword = ""
